@@ -21,4 +21,8 @@ export class AccommodationService {
     console.log(numPersons);
     return this.http.get<IAccommodation[]>('/accommodations/search?place=' + place + '&numPersons=' + numPersons);
   }
+
+  public reserve(accommodation): Observable<any> {
+    return this.http.put('/accommodations/reserve', accommodation);
+  }
 }

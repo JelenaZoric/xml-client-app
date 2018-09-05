@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'accommodations/search', component: SearchFormComponent},
-  { path: 'accommodations/search/getReservations', component: ReservationComponent}
+  { path: 'accommodations/search/getReservations', component: ReservationComponent},
+  { path: 'addReservation', component: ReservationComponent}
 ];
 
 @NgModule({

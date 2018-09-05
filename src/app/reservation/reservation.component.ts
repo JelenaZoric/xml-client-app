@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ReservationService} from '../reservation.service';
+import { AccommodationService } from '../accommodation.service';
+import {IReservation} from '../ireservation';
+import {IReservationDto} from '../ireservationdto';
 
 @Component({
   selector: 'app-reservation',
@@ -10,11 +13,25 @@ export class ReservationComponent implements OnInit {
 
   private reservations;
 
-  constructor(private reservationService: ReservationService) { }
+  private accommodations;
+
+  constructor(private reservationService: ReservationService, private accommodationService: AccommodationService) { }
 
   ngOnInit() {
     this.reservationService.getReservations().subscribe(data => this.reservations = data);
+    this.accommodationService.getAccommodations().subscribe(data => this.accommodations = data);
   }
 
+  addReservation(accommodation) {
+    const reservation: IReservationDto = {
+      accommodationId: accommodation.id,
+      dateFrom: '',
+      dateTo: ''
+    };
+
+    this.reservationService.addReservation(reservation).subscribe(data => {
+      this.reservationService.getReservations().subscribe(data => this.reservations = data);
+    });
+  }
 
 }

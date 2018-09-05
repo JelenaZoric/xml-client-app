@@ -13,4 +13,8 @@ export class ReservationService {
   public getReservations(): Observable<IReservation[]> {
     return this.http.get<IReservation[]>('getReservations');
   }
+
+  public addReservation(reservation): Observable<any> {
+    return this.http.post<any>('/addReservation', reservation);
+  }
 }

@@ -19,7 +19,6 @@ export class SearchFormComponent implements OnInit {
 
   numPersons: number;
 
-
   private accommodations;
 
   submitted = false;
@@ -34,6 +33,12 @@ export class SearchFormComponent implements OnInit {
     this.submitted = true;
     this.accommodationService.search(place, numPersons).subscribe(data => this.accommodations = data);
     console.log('usao u search form');
+  }
+
+  reserve(accommodation) {
+    this.accommodationService.reserve(accommodation).subscribe(data => {
+      this.accommodationService.getAccommodations().subscribe(data => this.accommodations = data);
+    });
   }
 
 }
