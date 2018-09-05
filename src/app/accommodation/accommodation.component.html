@@ -1,0 +1,23 @@
+<!--<h1>Pretraga</h1>
+<form id="searchForm">
+  <input type="text" placeholder="Mesto" id="place" name="place">
+  <input type="date" placeholder="Od" id="from" name="from">
+  <input type="date" placeholder="Do" id="to" name="to">
+  <input type="number" placeholder="Broj osoba" id="numPersons" name="numPersons">
+  <input type="submit" value="OK" id="searchBtn" (click)="search()">
+</form>-->
+<h1>Dostupni smeštaji</h1>
+<table id="accTable" class="table">
+  <tr class="header">
+    <th>Naziv</th>
+    <th>Adresa</th>
+    <th>Grad</th>
+  </tr>
+  <tbody *ngFor="let accommodation of accommodations">
+  <tr>
+    <td>{{accommodation.name}}</td>
+    <td>{{accommodation.address}}</td>
+    <td>{{accommodation.place}}</td>
+  </tr>
+  </tbody>
+</table>

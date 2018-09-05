@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Pretraga</h1>
+  <form>
+    <div class="form-group">
+      <label for="place">Mesto</label>
+      <input type="text" class="form-control" id="place" required name="place" #place>
+    </div>
+
+    <div class="form-group">
+      <label for="numPersons">Broj osoba</label>
+      <input type="text" class="form-control" id="numPersons" required name="numPersons" #numPersons>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Tip smestaja</label>
+      <select class="form-control" id="type" required>
+        <option *ngFor="let t of types" [value]="t">{{t}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit(place.value, numPersons.value)">Submit</button>
+
+  </form>
+</div>
+<!--[(ngModel)]="place"-->
+<h1>Dostupni smeštaji</h1>
+<table id="accTable" class="table">
+  <tr class="header">
+    <th>Naziv</th>
+    <th>Adresa</th>
+    <th>Grad</th>
+  </tr>
+  <tbody *ngFor="let accommodation of accommodations">
+  <tr>
+    <td>{{accommodation.name}}</td>
+    <td>{{accommodation.address}}</td>
+    <td>{{accommodation.place}}</td>
+  </tr>
+  </tbody>
+</table>
+<button type="button" routerLink="getReservations">Rezervacije</button>

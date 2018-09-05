@@ -1,0 +1,15 @@
+<h1>Rezervacije</h1>
+<table id="accTable" class="table">
+  <tr class="header">
+    <th>Smestaj</th>
+    <th>Status</th>
+    <th>Od</th>
+    <th>Do</th>
+  </tr>
+  <tbody *ngFor="let reservation of reservations">
+  <tr>
+    <td>{{reservation.accommodation}}</td>
+    <td>{{reservation.status}}</td>
+  </tr>
+  </tbody>
+</table>
